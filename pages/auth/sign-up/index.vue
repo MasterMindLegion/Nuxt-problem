@@ -8,9 +8,9 @@
           </h2>
           <p class="mt-2 text-center text-sm leading-5 text-gray-600">
             Or
-            <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+            <nuxt-link :to='{ name: "auth-sign-in" }' class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
               log in here
-            </a>
+            </nuxt-link>
           </p>
         </div>
         <form class="mt-8" @submit.prevent='submit'>

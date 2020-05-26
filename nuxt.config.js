@@ -31,7 +31,9 @@ export default {
   plugins: [
       './plugins/mixins/user.js',
       './plugins/mixins/axios.js',
-      './plugins/mixins/validation.js'
+      './plugins/mixins/validation.js',
+      '~/plugins/packages/vue-placeholders.js',
+      '~/plugins/packages/vue-observe-visibility.client.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -49,7 +51,8 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
 
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+    'nuxt-polyfill',
   ],
   /*
   ** Axios module configuration
@@ -97,5 +100,39 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+
+   polyfill: {
+        features: [
+            /*
+                Feature without detect:
+
+                Note:
+                  This is not recommended for most polyfills
+                  because the polyfill will always be loaded, parsed and executed.
+            */
+            {
+                require: 'url-polyfill' // NPM package or require path of file
+            },
+
+            /*
+                Feature with detect:
+
+                Detection is better because the polyfill will not be
+                loaded, parsed and executed if it's not necessary.
+            */
+            {
+                require: 'intersection-observer',
+                detect: () => 'IntersectionObserver' in window,
+            },
+
+            /*
+                Feature with detect & install:
+
+                Some polyfills require a installation step
+                Hence you could supply a install function which accepts the require result
+            */
+
+        ]
+    },
 }
