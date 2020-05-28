@@ -43,6 +43,13 @@
              </template>
         </div>
 
+        <!-- NO Articles -->
+        <template v-if='articles.length <= 0'>
+          <div>
+            <h2>No Content</h2>
+          </div>
+        </template>
+
 
         <!-- Right Sidebar -->
         <div class="col-start-5 col-end-6   bg-black invisible lg:visible '">
@@ -53,6 +60,7 @@
 </template>
 <script>
 import ArticlesBlock from '@/components/articles/ArticlesBlock.vue'
+
 export default {
   components: {
     ArticlesBlock,
