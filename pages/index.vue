@@ -66,14 +66,11 @@
 <script>
 import ArticlesBlock from '@/components/articles/ArticlesBlock.vue'
 import TagsBlock from '@/components/tags/TagsBlock.vue'
-import TopButton from '@components/partials/TopButton.vue'
 
 export default {
   components: {
     ArticlesBlock,
     TagsBlock,
-    TopButton,
-
   },
   data() {
     return {

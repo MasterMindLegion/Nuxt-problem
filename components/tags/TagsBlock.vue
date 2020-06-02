@@ -19,6 +19,7 @@
 </template>
 
 <script>
+    import Test from '@components/test.vue'
     export default {
         data() {
             return {
@@ -33,6 +34,9 @@
             upperCase(value) {
                 return '#' + value.toUpperCase();
             }
+        },
+        componens: {
+
         }
     };
 </script>

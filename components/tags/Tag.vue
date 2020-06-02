@@ -52,7 +52,8 @@
             this.tagSlug = this.$route.params.slug
         },
         components: {
-            ArticlesBlock
+            ArticlesBlock,
+
         }
     };
 </script>
