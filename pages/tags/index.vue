@@ -1,15 +1,8 @@
 <template>
     <div>
-        list of all tags:
-        <!-- If loading -->
-        <template v-if='$fetchState.pending'>
-            <h1>Loading...</h1>
-        </template>
+        <h2>List of all tags</h2>
+          <tags-block  />
 
-        <!-- Loaded -->
-        <template v-else>
-          <tags-block :tags='tags.data' />
-        </template>
     </div>
 </template>
 
@@ -19,13 +12,5 @@
         components: {
             TagsBlock,
         },
-        data() {
-            return {
-                tags: null,
-         }
-        },
-        async fetch() {
-            this.tags = await this.$axios.$get(`/tags`)
-        }
     };
 </script>

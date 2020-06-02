@@ -2,8 +2,11 @@
   <div class=" grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5  grid-rows-1 bg-white w-full h-full ">
 
         <!-- Left Sidebar -->
-        <div class=' col-start-1 col-end-1   bg-black invisible md:visible '>
-            <h1>Tags:</h1>
+        <div class=' col-start-1 col-end-1   bg-white invisible md:visible '>
+            <h1>Design you experience:</h1>
+            <div>
+              <tags-block />
+            </div>
         </div>
 
         <!-- Posts -->
@@ -42,7 +45,6 @@
                 <div v-if='articles.length' v-observe-visibility='handleScrolledToBottom'></div>
              </template>
         </div>
-
         <!-- NO Articles -->
         <template v-if='articles.length <= 0'>
           <div>
@@ -55,15 +57,23 @@
         <div class="col-start-5 col-end-6   bg-black invisible lg:visible '">
             right
         </div>
+        <div>
+          <p>go</p>
+        </div>
 
   </div>
 </template>
 <script>
 import ArticlesBlock from '@/components/articles/ArticlesBlock.vue'
+import TagsBlock from '@/components/tags/TagsBlock.vue'
+import TopButton from '@components/partials/TopButton.vue'
 
 export default {
   components: {
     ArticlesBlock,
+    TagsBlock,
+    TopButton,
+
   },
   data() {
     return {

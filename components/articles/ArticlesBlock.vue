@@ -34,6 +34,7 @@
 </template>
 
 <script>
+
   export default {
     props: {
       article: {
@@ -41,6 +42,9 @@
         Type: Object,
         default: null
       }
+    },
+    components: {
+
     }
   };
 </script>

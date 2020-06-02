@@ -1,26 +1,38 @@
 <template>
     <div>
-        <div v-for='tag in tags'>
-            <nuxt-link
-                :to="{ name: 'tags-slug', params: {slug: tag.slug }}"
-            >
-                {{ tag.name }}
-            </nuxt-link>
+        <!-- Content is being loaded -->
+        <template v-if='$fetchState.pending'>
+            <h1>Loading...</h1>
+        </template>
 
-        </div>
-
+        <!-- Content is loaded -->
+        <template v-else>
+           <div v-for='tag in tags'>
+                <nuxt-link
+                    :to="{ name: 'tags-slug', params: {slug: tag.slug }}"
+                >
+                    {{ tag.name | upperCase }}
+                </nuxt-link>
+            </div>
+        </template>
     </div>
 </template>
 
 <script>
     export default {
-        props: {
-            tags: {
-                required: true,
-                Type: Object,
-                default: null
+        data() {
+            return {
+             tags: null,
+        }
+        },
+        async fetch() {
+            let response = await this.$axios.$get(`/tags`)
+            this.tags = response.data
+        },
+        filters: {
+            upperCase(value) {
+                return '#' + value.toUpperCase();
             }
         }
-
     };
 </script>
