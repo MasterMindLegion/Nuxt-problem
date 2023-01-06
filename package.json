@@ -16,7 +16,7 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "@tailwindcss/ui": "^0.3.0",
     "intersection-observer": "^0.10.0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.8",
     "nuxt-polyfill": "^1.0.3",
     "tailwindcss": "^1.4.4",
     "url-polyfill": "^1.1.9",
